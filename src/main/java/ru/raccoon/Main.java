@@ -37,8 +37,9 @@ public class Main {
                 }
                 System.out.println(text.substring(0, 100) + " -> " + maxSize);
             };
-            threads.add(new Thread(logic));
-            logic.run();
+            Thread thread = new Thread(logic);
+            thread.start();
+            threads.add(thread);
         }
 
         for (Thread thread : threads) {
